@@ -1,0 +1,215 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #F7F2E8; /* Fundo principal */
+    color: #53392c; /* Texto principal / títulos / preços */
+    line-height: 1.6;
+}
+
+/* --- CABEÇALHO --- */
+header {
+    background-color: #53392c; 
+    color: #FFFDF8;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 6px rgba(43, 29, 22, 0.1);
+    border-bottom: 2px solid #DED6C8;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #FFFDF8;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+header nav ul li a {
+    color: #FFFDF8;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #C9854A; /* Destaque ao passar o mouse */
+}
+
+/* --- CONTEÚDO PRINCIPAL (MAIN) --- */
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Categorias do Cardápio */
+.categoria {
+    margin-bottom: 2.5rem;
+}
+
+.categoria h2 {
+    font-size: 1.5rem;
+    color: #2B1D16;
+    border-bottom: 2px solid #DED6C8; /* Bordas / divisórias */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.foto-produto {
+    width: 60px;       /* Largura menor e compacta */
+    height: 60px;      /* Altura igual para ficar quadrado (ou redondo) */
+    object-fit: cover; /* Garante que a foto não distorce */
+    border-radius: 6px;/* Cantos levemente arredondados */
+}
+
+/* Itens do Cardápio (Cards) */
+.item-cardapio {
+    background: #FFFDF8; /* Cards / superfícies */
+    padding: 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(43, 29, 22, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border: 1px solid #DED6C8; /* Bordas / divisórias */
+    border-left: 4px solid #5D6B4C; /* Cor principal da marca na lateral */
+}
+
+.item-cardapio h3 {
+    font-size: 1.1rem;
+    color: #2B1D16; /* Títulos */
+    flex: 1;
+}
+
+.item-cardapio p {
+    font-size: 0.9rem;
+    color: #6F5B4B; /* Texto secundário / descrições */
+    width: 100%;
+}
+
+.item-cardapio span {
+    font-weight: bold;
+    color: #2B1D16; /* Preços */
+    font-size: 1.1rem;
+}
+
+/* Botões e Ações */
+button, .btn {
+    background-color: #5D6B4C; /* Cor principal da marca / botões */
+    color: #FFFDF8;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+button:hover, .btn:hover {
+    background-color: #4a553c; /* Tom um pouco mais escuro para hover */
+}
+
+/* Classes utilitárias para Destaques, Sucesso e Erro */
+.badge-promocao {
+    background-color: #C9854A; /* Cor de destaque / promoções */
+    color: #FFFDF8;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.alerta-sucesso {
+    color: #7BA05B; /* Sucesso */
+}
+
+.alerta-erro {
+    color: #B85C38; /* Erro */
+}
+
+/* --- RODAPÉ --- */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #2B1D16;
+    color: #DED6C8;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    border-top: 2px solid #DED6C8;
+}
+
+/* Ativa a rolagem suave na página inteira */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Barra de categorias lateral ou em bloco vertical */
+.barra-categorias {
+    background-color: #FFFDF8;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column; /* Organiza os itens um abaixo do outro */
+    gap: 0.8rem;            /* Espaçamento entre os botões */
+    max-width: 300px;       /* Opcional: limita a largura para parecer um menu lateral */
+    margin: 1.5rem auto;    /* Centraliza na tela */
+    border: 1px solid #DED6C8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(43, 29, 22, 0.05);
+}
+
+.btn-categoria {
+    background-color: #F7F2E8;
+    color: #2B1D16;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 1px solid #DED6C8;
+    text-align: center;     /* Centraliza o texto dentro do botão */
+    transition: all 0.3s ease;
+}
+
+.btn-categoria:hover {
+    background-color: #5D6B4C;
+    color: #FFFDF8;
+    border-color: #5D6B4C;
+}
+
+.btn-categoria:hover {
+    background-color: #5D6B4C;
+    color: #FFFDF8;
+    border-color: #5D6B4C;
+}
+
+/* --- ORGANIZAÇÃO DA PÁGINA PARA O FOOTER FICAR EMBAIXO --- */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* Faz o conteúdo ocupar o espaço livre, empurrando o footer para o fundo */
+}
+
+footer {
+    margin-top: auto; /* Garante que o rodapé fica sempre no fim */
+}
