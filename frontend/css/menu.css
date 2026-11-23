@@ -1,4 +1,4 @@
-/* --- CONFIGURAÇÕES GERAIS --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,183 +6,93 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background-color: #F7F2E8; /* Fundo principal */
-    color: #53392c; /* Texto principal / títulos / preços */
+    background-color: #F7F2E8;
+    color: #53392c;
     line-height: 1.6;
 }
 
-/* --- CABEÇALHO --- */
+
+
 header {
-    background-color: #53392c; 
+    background-color: #53392c;
     color: #FFFDF8;
-    padding: 1.5rem 2rem;
+    padding: 1rem 2rem;
+}
+
+
+.header-inicial {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    box-shadow: 0 4px 6px rgba(43, 29, 22, 0.1);
-    border-bottom: 2px solid #DED6C8;
 }
 
 header h1 {
     font-size: 1.8rem;
-    color: #FFFDF8;
 }
 
-header nav ul {
-    list-style: none;
+header nav {
     display: flex;
     gap: 1.5rem;
 }
 
-header nav ul li a {
+header nav a {
     color: #FFFDF8;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
 }
 
-header nav ul li a:hover {
-    color: #C9854A; /* Destaque ao passar o mouse */
+header nav a:hover {
+    color: #C9854A;
 }
 
-/* --- CONTEÚDO PRINCIPAL (MAIN) --- */
-main {
-    max-width: 1000px;
+/* Organização cardápio */
+.layout-cardapio {
+    display: flex;
+    align-items: flex-start;
+    max-width: 1500px;
     margin: 2rem auto;
-    padding: 0 1rem;
+    gap: 2rem;
+    padding: 0 1.5rem;
 }
 
-/* Categorias do Cardápio */
-.categoria {
-    margin-bottom: 2.5rem;
-}
-
-.categoria h2 {
-    font-size: 1.5rem;
-    color: #2B1D16;
-    border-bottom: 2px solid #DED6C8; /* Bordas / divisórias */
-    padding-bottom: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.foto-produto {
-    width: 60px;       /* Largura menor e compacta */
-    height: 60px;      /* Altura igual para ficar quadrado (ou redondo) */
-    object-fit: cover; /* Garante que a foto não distorce */
-    border-radius: 6px;/* Cantos levemente arredondados */
-}
-
-/* Itens do Cardápio (Cards) */
-.item-cardapio {
-    background: #FFFDF8; /* Cards / superfícies */
-    padding: 1.2rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 4px rgba(43, 29, 22, 0.05);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-    border: 1px solid #DED6C8; /* Bordas / divisórias */
-    border-left: 4px solid #5D6B4C; /* Cor principal da marca na lateral */
-}
-
-.item-cardapio h3 {
-    font-size: 1.1rem;
-    color: #2B1D16; /* Títulos */
-    flex: 1;
-}
-
-.item-cardapio p {
-    font-size: 0.9rem;
-    color: #6F5B4B; /* Texto secundário / descrições */
-    width: 100%;
-}
-
-.item-cardapio span {
-    font-weight: bold;
-    color: #2B1D16; /* Preços */
-    font-size: 1.1rem;
-}
-
-/* Botões e Ações */
-button, .btn {
-    background-color: #5D6B4C; /* Cor principal da marca / botões */
-    color: #FFFDF8;
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.3s;
-}
-
-button:hover, .btn:hover {
-    background-color: #4a553c; /* Tom um pouco mais escuro para hover */
-}
-
-/* Classes utilitárias para Destaques, Sucesso e Erro */
-.badge-promocao {
-    background-color: #C9854A; /* Cor de destaque / promoções */
-    color: #FFFDF8;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
-.alerta-sucesso {
-    color: #7BA05B; /* Sucesso */
-}
-
-.alerta-erro {
-    color: #B85C38; /* Erro */
-}
-
-/* --- RODAPÉ --- */
-footer {
-    text-align: center;
-    padding: 1.5rem;
-    background-color: #2B1D16;
-    color: #DED6C8;
-    margin-top: 3rem;
-    font-size: 0.9rem;
-    border-top: 2px solid #DED6C8;
-}
-
-/* Ativa a rolagem suave na página inteira */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Barra de categorias lateral ou em bloco vertical */
+/*  lateral categorias */
 .barra-categorias {
+    width: 250px;
+    min-width: 250px;
     background-color: #FFFDF8;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column; /* Organiza os itens um abaixo do outro */
-    gap: 0.8rem;            /* Espaçamento entre os botões */
-    max-width: 300px;       /* Opcional: limita a largura para parecer um menu lateral */
-    margin: 1.5rem auto;    /* Centraliza na tela */
+    padding: 1.2rem;
+    border-radius: 12px;
     border: 1px solid #DED6C8;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(43, 29, 22, 0.05);
+    box-shadow: 0 2px 8px rgba(43, 29, 22, 0.08);
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
 }
 
+.barra-categorias h2 {
+    color: #53392c;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Botões que levam categorias do cardápio */
 .btn-categoria {
+    display: block;
     background-color: #F7F2E8;
-    color: #2B1D16;
-    padding: 0.8rem 1rem;
-    border-radius: 6px;
+    color: #53392c;
+    padding: 0.9rem;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1rem;
     border: 1px solid #DED6C8;
-    text-align: center;     /* Centraliza o texto dentro do botão */
     transition: all 0.3s ease;
 }
 
@@ -192,24 +102,324 @@ html {
     border-color: #5D6B4C;
 }
 
-.btn-categoria:hover {
-    background-color: #5D6B4C;
-    color: #FFFDF8;
-    border-color: #5D6B4C;
+main {
+    flex: 1;
+    min-width: 0;
 }
 
-/* --- ORGANIZAÇÃO DA PÁGINA PARA O FOOTER FICAR EMBAIXO --- */
-html, body {
-    height: 100%;
-    margin: 0;
+/* Espaçamento categorias */
+.categoria {
+    margin-bottom: 3rem;
+    scroll-margin-top: 110px;
+}
+
+.categoria h2 {
+    font-size: 1.7rem;
+    color: #53392c;
+    border-bottom: 2px solid #DED6C8;
+    padding-bottom: 0.7rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Organiza os produtos em duas colunas */
+.grade-produtos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+}
+
+/* Aparência dos cartões de produtos */
+.item-cardapio {
+    background-color: #FFFDF8;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #DED6C8;
+    box-shadow: 0 2px 6px rgba(43, 29, 22, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Faz o cartão subir levemente quando o mouse passa por cima */
+.item-cardapio:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(43, 29, 22, 0.12);
+}
+
+/* Configuração das imagens dos produtos */
+.item-cardapio img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Organização das informações de cada produto */
+.info-produto {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.info-produto h3 {
+    color: #2B1D16;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.info-produto p {
+    color: #6F5B4B;
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+}
+
+.info-produto span {
+    color: #2B1D16;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+/* Estilização dos botões */
+button,
+.btn {
+    background-color: #5D6B4C;
+    color: #FFFDF8;
+    border: none;
+    padding: 0.8rem 1rem;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: background 0.3s;
+}
+
+button:hover,
+.btn:hover {
+    background-color: #4a553c;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #53392c;
+    color: #DED6C8;
+    font-size: 0.9rem;
+}
+
+/* Ajustes para telas médias */
+@media (max-width: 850px) {
+    .layout-cardapio {
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .barra-categorias {
+        width: 210px;
+        min-width: 210px;
+    }
+
+    .grade-produtos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Ajustes para celulares */
+@media (max-width: 600px) {
+    header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    header nav {
+        gap: 1rem;
+    }
+
+    .layout-cardapio {
+        flex-direction: column;
+    }
+
+    .barra-categorias {
+        position: static;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .grade-produtos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* rodape final  */
+body.pagina-inicial {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-main {
-    flex: 1; /* Faz o conteúdo ocupar o espaço livre, empurrando o footer para o fundo */
+/* conteúdo principal ocupar o espaço disponível */
+body.pagina-inicial main {
+    flex: 1;
 }
 
-footer {
-    margin-top: auto; /* Garante que o rodapé fica sempre no fim */
+/* Organiza os elementos da página inicial no centro */
+.pagina-inicial .tela-inicial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+/* Define o tamanho e o posicionamento da logo */
+.logo-inicial {
+    display: block;
+    width: 350px;
+    max-width: 70%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto 25px;
+}
+
+/* Estiliza título e texto inicial */
+.pagina-inicial .tela-inicial h2 {
+    color: #53392c;
+    margin-bottom: 10px;
+}
+
+.pagina-inicial .tela-inicial p {
+    color: #53392c;
+    margin-bottom: 30px;
+    font-size: larger;
+}
+
+/* Botão iniciar atendimento */
+.btn-iniciar {
+    display: inline-block;
+    background-color: #5d6b4c;
+    color: #FFFDF8;
+    text-decoration: none;
+    padding: 18px 35px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/*  botão mouse por cima */
+.btn-iniciar:hover {
+    background-color: #a57865
+}
+
+/* Camada que cobre a tela durante a animação dos grãos */
+.animacao-graos {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+    display: none;
+}
+
+/* Aparência individual dos grãos de café */
+.grao {
+    position: absolute;
+    width: 22px;
+    height: 34px;
+    background: #53392c;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: inset -4px -3px 5px #2b1d16;
+}
+
+/* Cria a linha central que imita o formato de um grão de café */
+.grao::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 24px;
+    background: #C9854A;
+    left: 10px;
+    top: 5px;
+    border-radius: 50%;
+    transform: rotate(15deg);
+}
+
+/* Define a posição e a direção de movimento de cada grão */
+.grao1 { left: 15%; top: 45%; --movimento-x: -150px; --movimento-y: -220px; }
+.grao2 { left: 30%; top: 35%; --movimento-x: 100px; --movimento-y: -250px; }
+.grao3 { left: 45%; top: 55%; --movimento-x: -180px; --movimento-y: 100px; }
+.grao4 { left: 60%; top: 40%; --movimento-x: 150px; --movimento-y: -100px; }
+.grao5 { left: 75%; top: 50%; --movimento-x: 180px; --movimento-y: 180px; }
+.grao6 { left: 85%; top: 30%; --movimento-x: 100px; --movimento-y: -200px; }
+.grao7 { left: 25%; top: 65%; --movimento-x: -100px; --movimento-y: 180px; }
+.grao8 { left: 70%; top: 70%; --movimento-x: 180px; --movimento-y: 100px; }
+
+/* Faz a logo aumentar, girar e desaparecer ao iniciar */
+.pagina-inicial.animando .logo-inicial {
+    animation: logoSaida 1.3s ease forwards;
+}
+
+/* Faz os textos e o botão desaparecerem */
+.pagina-inicial.animando .tela-inicial h2,
+.pagina-inicial.animando .tela-inicial p,
+.pagina-inicial.animando .btn-iniciar {
+    animation: desaparecer 0.5s ease forwards;
+}
+
+/* Mostra a camada dos grãos somente durante a animação */
+.pagina-inicial.animando .animacao-graos {
+    display: block;
+}
+
+/* Inicia o movimento dos grãos quando a pessoa clica */
+.pagina-inicial.animando .grao {
+    animation: graosVoando 1.2s ease-out forwards;
+}
+
+/* Faz alguns grãos começarem um pouco depois dos outros */
+.pagina-inicial.animando .grao2,
+.pagina-inicial.animando .grao4,
+.pagina-inicial.animando .grao6,
+.pagina-inicial.animando .grao8 {
+    animation-delay: 0.1s;
+}
+
+/* ETAPAS DA ANIMAÇÃO DA LOGO */
+@keyframes logoSaida {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.7) rotate(-8deg);
+        opacity: 0;
+    }
+}
+
+/* ETAPAS DO DESAPARECIMENTO DOS TEXTOS */
+@keyframes desaparecer {
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* ETAPAS DO MOVIMENTO DOS GRÃOS DE CAFÉ */
+@keyframes graosVoando {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0) rotate(0deg) scale(0.5);
+    }
+    25% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--movimento-x, 100px), var(--movimento-y, -180px)) rotate(300deg) scale(1.3);
+    }
 }

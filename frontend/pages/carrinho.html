@@ -1,1 +1,377 @@
-2
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - LariCafé</title>
+    <link rel="stylesheet" href="../css/menu.css">
+
+    <style>
+        .pagina-carrinho {
+            min-height: 100vh;
+            background: #F7F2E8;
+            color: #2B1D16;
+        }
+
+        .conteudo-carrinho {
+            width: 90%;
+            max-width: 1100px;
+            margin: 45px auto;
+        }
+
+        .titulo-carrinho {
+            color: #53392c;
+            margin-bottom: 25px;
+            font-size: 30px;
+        }
+
+        .lista-carrinho {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .produto-carrinho {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #FFFDF8;
+            padding: 18px;
+            border-radius: 14px;
+            box-shadow: 0 3px 12px #0000000d;
+        }
+
+        .produto-carrinho img {
+            width: 115px;
+            height: 105px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .detalhes-produto {
+            flex: 1;
+        }
+
+        .detalhes-produto h3 {
+            color: #53392c;
+            margin-bottom: 7px;
+        }
+
+        .detalhes-produto p {
+            margin-bottom: 8px;
+            color: #75665d;
+        }
+
+        .preco-produto {
+            font-weight: bold;
+            color: #5D6B4C;
+        }
+
+        /* Alinhamento dos controles de quantidade */
+        .controles-quantidade {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        /* Botões de aumentar e diminuir */
+        .controles-quantidade button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            padding: 0;
+            margin: 0;
+            border: none;
+            border-radius: 8px;
+            background: #5D6B4C;
+            color: #FFFDF8;
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 1;
+            text-align: center;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .controles-quantidade span {
+            min-width: 18px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+
+.remover-produto {
+    background: transparent !important;
+    color: #a04435;
+    border: none;
+}
+
+        .resumo-carrinho {
+            background: #FFFDF8;
+            padding: 25px;
+            border-radius: 14px;
+            margin-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .resumo-carrinho[hidden] {
+            display: none;
+        }
+
+        .total-carrinho {
+            font-size: 24px;
+            font-weight: bold;
+            color: #53392c;
+        }
+
+        .botoes-carrinho {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .botoes-carrinho a {
+            text-decoration: none;
+            padding: 13px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .voltar-cardapio {
+            background: #DED6C8;
+            color: #53392c;
+        }
+
+        .continuar-pedido {
+            background: #5D6B4C;
+            color: white;
+        }
+
+        .carrinho-vazio {
+            background: #FFFDF8;
+            padding: 45px 20px;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        .carrinho-vazio p {
+            margin: 12px 0 22px;
+        }
+
+        @media (max-width: 600px) {
+            .produto-carrinho {
+                align-items: flex-start;
+                flex-wrap: wrap;
+            }
+
+            .produto-carrinho img {
+                width: 90px;
+                height: 90px;
+            }
+
+            .resumo-carrinho {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body class="pagina-carrinho">
+
+<header>
+    <h1>LariCafé</h1>
+    <nav>
+        <a href="../inicial.html">Início</a>
+        <a href="menu.html">Cardápio</a>
+    </nav>
+</header>
+
+<main class="conteudo-carrinho">
+
+    <h2 class="titulo-carrinho">Meu carrinho 🛒</h2>
+
+    <div id="listaCarrinho" class="lista-carrinho"></div>
+
+    <div id="resumoCarrinho" class="resumo-carrinho" hidden>
+        <div>
+            <p>Total do pedido</p>
+            <p class="total-carrinho" id="totalCarrinho">R$ 0,00</p>
+        </div>
+
+        <div class="botoes-carrinho">
+            <a href="menu.html" class="voltar-cardapio">
+                Continuar comprando
+            </a>
+
+            <a href="retirada.html" class="continuar-pedido">
+                Peça e retire
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<script>
+    // Recupera os produtos salvos no navegador
+    let carrinho = JSON.parse(
+        localStorage.getItem("laricafeCarrinho")
+    ) || [];
+
+    const lista = document.getElementById("listaCarrinho");
+    const resumo = document.getElementById("resumoCarrinho");
+    const totalElemento = document.getElementById("totalCarrinho");
+
+    // Formata os valores para reais
+    const formatarPreco = (valor) => {
+        return valor.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        });
+    };
+
+    // Salva as alterações no carrinho
+    function salvarCarrinho() {
+        localStorage.setItem(
+            "laricafeCarrinho",
+            JSON.stringify(carrinho)
+        );
+    }
+
+    // Atualiza os produtos exibidos na tela
+    function atualizarCarrinho() {
+        lista.innerHTML = "";
+
+        // Verifica se o carrinho está vazio
+        if (carrinho.length === 0) {
+            resumo.hidden = true;
+
+            const vazio = document.createElement("div");
+            vazio.className = "carrinho-vazio";
+
+            const titulo = document.createElement("h3");
+            titulo.textContent = "Seu carrinho está vazio";
+
+            const mensagem = document.createElement("p");
+            mensagem.textContent =
+                "Que tal escolher alguma delícia do nosso cardápio?";
+
+            const link = document.createElement("a");
+            link.href = "menu.html";
+            link.className = "continuar-pedido";
+            link.textContent = "Ver cardápio";
+            link.style.display = "inline-block";
+            link.style.padding = "13px 20px";
+            link.style.borderRadius = "8px";
+            link.style.textDecoration = "none";
+
+            vazio.append(titulo, mensagem, link);
+            lista.appendChild(vazio);
+
+            return;
+        }
+
+        resumo.hidden = false;
+
+        let total = 0;
+
+        carrinho.forEach((produto, indice) => {
+            total += produto.preco * produto.quantidade;
+
+            const card = document.createElement("article");
+            card.className = "produto-carrinho";
+
+            const imagem = document.createElement("img");
+            imagem.src = produto.imagem;
+            imagem.alt = produto.nome;
+
+            const detalhes = document.createElement("div");
+            detalhes.className = "detalhes-produto";
+
+            const nome = document.createElement("h3");
+            nome.textContent = produto.nome;
+
+            const descricao = document.createElement("p");
+            descricao.textContent = produto.descricao || "";
+
+            const preco = document.createElement("span");
+            preco.className = "preco-produto";
+            preco.textContent = formatarPreco(produto.preco);
+
+            // Cria os controles de quantidade
+            const controles = document.createElement("div");
+            controles.className = "controles-quantidade";
+
+            const diminuir = document.createElement("button");
+            diminuir.textContent = "−";
+            diminuir.setAttribute("aria-label", "Diminuir quantidade");
+            diminuir.onclick = () => alterarQuantidade(indice, -1);
+
+            const quantidade = document.createElement("span");
+            quantidade.textContent = produto.quantidade;
+
+            const aumentar = document.createElement("button");
+            aumentar.textContent = "+";
+            aumentar.setAttribute("aria-label", "Aumentar quantidade");
+            aumentar.onclick = () => alterarQuantidade(indice, 1);
+
+            controles.append(diminuir, quantidade, aumentar);
+
+            // Botão para remover o produto
+            const remover = document.createElement("button");
+            remover.className = "remover-produto";
+            remover.textContent = "Remover produto";
+            remover.onclick = () => removerProduto(indice);
+
+            detalhes.append(
+                nome,
+                descricao,
+                preco,
+                controles,
+                remover
+            );
+
+            card.append(imagem, detalhes);
+            lista.appendChild(card);
+        });
+
+        // Atualiza o valor total
+        totalElemento.textContent = formatarPreco(total);
+    }
+
+    // Aumenta ou diminui a quantidade
+    function alterarQuantidade(indice, valor) {
+        carrinho[indice].quantidade += valor;
+
+        if (carrinho[indice].quantidade <= 0) {
+            carrinho.splice(indice, 1);
+        }
+
+        salvarCarrinho();
+        atualizarCarrinho();
+    }
+
+    // Remove um produto do carrinho
+    function removerProduto(indice) {
+        carrinho.splice(indice, 1);
+
+        salvarCarrinho();
+        atualizarCarrinho();
+    }
+
+    // Exibe o carrinho ao abrir a página
+    atualizarCarrinho();
+</script>
+
+</body>
+</html>
