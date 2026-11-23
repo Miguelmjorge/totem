@@ -1,395 +1,474 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cardápio - Laricafé</title>
+    <title>Cardápio - LariCafé</title>
     <link rel="stylesheet" href="../css/menu.css">
 </head>
 <body>
-    <header>
-        <h1> Laricafé</h1>
-        <nav>
-            <ul>
-                <li><a href="inicial.html">Início</a></li>
-                <li><a href="menu.html">Cardápio</a></li>
-                <li><a href="carrinho.html">Carrinho</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Barra de navegação por categorias -->
-    <div class="barra-categorias">
-        <a href="#quentes" class="btn-categoria">☕ Cafés Quentes</a>
-        <a href="#gelados" class="btn-categoria">🧊 Cafés Gelados</a>
-        <a href="#bebidas" class="btn-categoria">🧃 Outras Bebidas</a>
-        <a href="#paes" class="btn-categoria">🥐 Pães e Omeletes</a>
-        <a href="#salgados" class="btn-categoria">🥐 Salgados</a>
-        <a href="#doces" class="btn-categoria">🍰 Bolos e Doces</a>
-    </div>
+<header>
+    <h1>LariCafé</h1>
+    <nav>
+        <a href="../inicial.html">Início</a>
+        <a href="carrinho.html">Carrinho 🛒</a>
+    </nav>
+</header>
+
+<div class="layout-cardapio">
+
+    <aside class="barra-categorias">
+        <h2>Categorias</h2>
+        <a href="#quentes" class="btn-categoria">Cafés Quentes</a>
+        <a href="#gelados" class="btn-categoria">Cafés Gelados</a>
+        <a href="#bebidas" class="btn-categoria">Outras Bebidas</a>
+        <a href="#paes" class="btn-categoria">Pães e Omeletes</a>
+        <a href="#salgados" class="btn-categoria">Salgados</a>
+        <a href="#doces" class="btn-categoria">Bolos e Doces</a>
+    </aside>
 
     <main>
-        <!-- 1. CAFÉS QUENTES -->
+
+        <!-- CATEGORIA: CAFÉS QUENTES -->
         <section id="quentes" class="categoria">
             <h2>Cafés Quentes</h2>
+            <div class="grade-produtos">
 
-            <div class="item-cardapio">
-                <img src="/front end/img/espresso-tradicional.jpg" alt="Espresso Tradicional" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Espresso Tradicional</h3>
-                    <p>Café curto, encorpado e aromático</p>
-                    <span>R$ 6,00</span>
+                <div class="item-cardapio">
+                    <img src="/front end/img/espresso-tradicional.jpg" alt="Espresso Tradicional">
+                    <div class="info-produto">
+                        <h3>Espresso Tradicional</h3>
+                        <p>Café curto, encorpado e aromático</p>
+                        <span>R$ 6,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
 
-            <div class="item-cardapio">
-                <img src="/front end/img/espresso duplo.jpg" alt="Espresso Duplo" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Espresso Duplo</h3>
-                    <p>Dose em dobro para quem ama um café forte</p>
-                    <span>R$ 8,50</span>
+                <div class="item-cardapio">
+                    <img src="/front end/img/espresso duplo.jpg" alt="Espresso Duplo">
+                    <div class="info-produto">
+                        <h3>Espresso Duplo</h3>
+                        <p>Dose em dobro para quem ama um café forte</p>
+                        <span>R$ 8,50</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
 
-            <div class="item-cardapio">
-                <img src="/front end/img/capucino cremoso.webp" alt="Cappuccino Cremoso" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Cappuccino Cremoso</h3>
-                    <p>Espresso, leite vaporizado, cacau e um toque de canela</p>
-                    <span>R$ 10,00</span>
+                <div class="item-cardapio">
+                    <img src="/front end/img/capucino cremoso.webp" alt="Cappuccino Cremoso">
+                    <div class="info-produto">
+                        <h3>Cappuccino Cremoso</h3>
+                        <p>Espresso, leite vaporizado, cacau e canela</p>
+                        <span>R$ 10,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
 
-            <div class="item-cardapio">
-                <img src="/front end/img/cafe com leite.jpg" alt="Café com Leite" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Café com Leite</h3>
-                    <p>A clássica combinação da casa com um leite quentinho</p>
-                    <span>R$ 7,00</span>
+                <div class="item-cardapio">
+                    <img src="/front end/img/cafe com leite.jpg" alt="Café com Leite">
+                    <div class="info-produto">
+                        <h3>Café com Leite</h3>
+                        <p>A clássica combinação da casa com leite quentinho</p>
+                        <span>R$ 7,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
 
-            <div class="item-cardapio">
-                <img src="/front end/img/Latte Macchiato.jpg" alt="Latte Macchiato" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Latte Macchiato</h3>
-                    <p>Leite vaporizado com uma mancha de espresso</p>
-                    <span>R$ 10,50</span>
+                <div class="item-cardapio">
+                    <img src="/front end/img/Latte Macchiato.jpg" alt="Latte Macchiato">
+                    <div class="info-produto">
+                        <h3>Latte Macchiato</h3>
+                        <p>Leite vaporizado com uma mancha de espresso</p>
+                        <span>R$ 10,50</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
 
-            <div class="item-cardapio">
-                <img src="/front end/img/mocha.jpg" alt="Mocha" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Mocha</h3>
-                    <p>Espresso, calda de chocolate, leite vaporizado e chantilly</p>
-                    <span>R$ 12,00</span>
+                <div class="item-cardapio">
+                    <img src="/front end/img/mocha.jpg" alt="Mocha">
+                    <div class="info-produto">
+                        <h3>Mocha</h3>
+                        <p>Espresso, chocolate, leite vaporizado e chantilly</p>
+                        <span>R$ 12,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
 
-            <div class="item-cardapio">
-                <img src="/front end/img/cafe coado.png" alt="Café Coado" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Café Coado</h3>
-                    <p>Café filtrado na hora, leve e muito aromático</p>
-                    <span>R$ 6,50</span>
+                <div class="item-cardapio">
+                    <img src="/front end/img/cafe coado.png" alt="Café Coado">
+                    <div class="info-produto">
+                        <h3>Café Coado</h3>
+                        <p>Café filtrado na hora, leve e aromático</p>
+                        <span>R$ 6,50</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
+
             </div>
         </section>
 
-        <!-- 2. CAFÉS GELADOS -->
+        <!-- CATEGORIA: CAFÉS GELADOS -->
         <section id="gelados" class="categoria">
             <h2>Cafés Gelados</h2>
+            <div class="grade-produtos">
 
-            <div class="item-cardapio">
-                <img src="https://www.forkinthekitchen.com/wp-content/uploads/2022/07/220629.iced_.latte_.vanilla-8882.jpg" alt="Iced Latte" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Iced Latte</h3>
-                    <p>Espresso, leite gelado e cubos de gelo</p>
-                    <span>R$ 11,00</span>
+                <div class="item-cardapio">
+                    <img src="https://www.forkinthekitchen.com/wp-content/uploads/2022/07/220629.iced_.latte_.vanilla-8882.jpg" alt="Iced Latte">
+                    <div class="info-produto">
+                        <h3>Iced Latte</h3>
+                        <p>Espresso, leite gelado e cubos de gelo</p>
+                        <span>R$ 11,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>    
-            </div>
 
-            <div class="item-cardapio">
-                <img src="https://www.everyday-delicious.com/wp-content/uploads/2022/07/iced-mocha-everyday-delicious-1.jpg" alt="Iced Mocha" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Iced Mocha</h3>
-                    <p>Café gelado com calda de chocolate, leite e gelo</p>
-                    <span>R$ 14,00</span>
+                <div class="item-cardapio">
+                    <img src="https://www.everyday-delicious.com/wp-content/uploads/2022/07/iced-mocha-everyday-delicious-1.jpg" alt="Iced Mocha">
+                    <div class="info-produto">
+                        <h3>Iced Mocha</h3>
+                        <p>Café gelado com chocolate, leite e gelo</p>
+                        <span>R$ 14,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>    
-            </div>
 
-            <div class="item-cardapio">
-                <img src="https://editorialtelevisa.brightspotcdn.com/dims4/default/5a6ee05/2147483647/strip/true/crop/1200x675+0+13/resize/1440x810!/quality/90/?url=https:%2F%2Fk2-prod-editorial-televisa.s3.us-east-1.amazonaws.com%2Fbrightspot%2Fb1%2Fa7%2Fc1ff8bd04c80a69f2354235e4cfd%2Ffrappe-de-cafe.jpg" alt="Frappé de Café" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Frappé de Café</h3>
-                    <p>Café batido com gelo, leite e cobertura de chantilly.</p>
-                    <span>R$ 14,00</span>
+                <div class="item-cardapio">
+                    <img src="https://editorialtelevisa.brightspotcdn.com/dims4/default/5a6ee05/2147483647/strip/true/crop/1200x675+0+13/resize/1440x810!/quality/90/?url=https:%2F%2Fk2-prod-editorial-televisa.s3.us-east-1.amazonaws.com%2Fbrightspot%2Fb1%2Fa7%2Fc1ff8bd04c80a69f2354235e4cfd%2Ffrappe-de-cafe.jpg" alt="Frappé de Café">
+                    <div class="info-produto">
+                        <h3>Frappé de Café</h3>
+                        <p>Café batido com gelo, leite e chantilly</p>
+                        <span>R$ 14,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
 
-            <div class="item-cardapio">
-                <img src="https://tse4.mm.bing.net/th/id/OIP.l2mhvIVQBPtcOIl3HWDfPAHaJQ?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Cold Brew" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Cold Brew</h3>
-                    <p>Café extraído a frio por 12 horas, super refrescante.</p>
-                    <span>R$ 12,00</span>
+                <div class="item-cardapio">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.l2mhvIVQBPtcOIl3HWDfPAHaJQ?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Cold Brew">
+                    <div class="info-produto">
+                        <h3>Cold Brew</h3>
+                        <p>Café extraído a frio por 12 horas, refrescante</p>
+                        <span>R$ 12,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
+
             </div>
         </section>
 
-        <!-- 3. BEBIDAS (SUCOS E REFRIGERANTES) -->
+        <!-- CATEGORIA: OUTRAS BEBIDAS -->
         <section id="bebidas" class="categoria">
-            <h2>Outras Bebidas (Sucos e Refrigerantes)</h2>
-            
-            <div class="item-cardapio">
-                <img src="/front end/img/suco-natural-de-laranja.jpg" alt="Suco Natural de Laranja" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Suco Natural de Laranja</h3>
-                    <p>Feito na hora, 100% fruta e refrescante.</p>
-                    <span>R$ 8,00</span>
-                </div>
-                <button>Adicionar</button>
-            </div>
+            <h2>Outras Bebidas</h2>
+            <div class="grade-produtos">
 
-              <div class="item-cardapio">
-                <img src="/front end/img/suco maracuja.avif" alt="Suco Natural de Maracujá" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Suco Natural de Maracujá</h3>
-                    <p>Feito na hora, 100% fruta e refrescante.</p>
-                    <span>R$ 8,00</span>
+                <div class="item-cardapio">
+                    <img src="/front end/img/suco-natural-de-laranja.jpg" alt="Suco de Laranja">
+                    <div class="info-produto">
+                        <h3>Suco Natural de Laranja</h3>
+                        <p>Feito na hora, 100% fruta e refrescante</p>
+                        <span>R$ 8,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
 
-  <div class="item-cardapio">
-                <img src="/front end/img/suco-de-limao.png" alt="Suco Natural de Limão" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Suco Natural de Limão</h3>
-                    <p>Feito na hora, 100% fruta e refrescante.</p>
-                    <span>R$ 8,00</span>
+                <div class="item-cardapio">
+                    <img src="/front end/img/suco maracuja.avif" alt="Suco de Maracujá">
+                    <div class="info-produto">
+                        <h3>Suco Natural de Maracujá</h3>
+                        <p>Feito na hora, 100% fruta e refrescante</p>
+                        <span>R$ 8,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
 
-              <div class="item-cardapio">
-                <img src="/front end/img/suco-natural-morango.jpg" alt="Suco Natural de Morango" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Suco Natural de Morango</h3>
-                    <p>Feito na hora, 100% fruta e refrescante.</p>
-                    <span>R$ 8,00</span>
+                <div class="item-cardapio">
+                    <img src="/front end/img/suco-de-limao.png" alt="Suco de Limão">
+                    <div class="info-produto">
+                        <h3>Suco Natural de Limão</h3>
+                        <p>Feito na hora, 100% fruta e refrescante</p>
+                        <span>R$ 8,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
 
-  <div class="item-cardapio">
-                <img src="/front end/img/suco de abacaxi normal.jpg" alt="Suco Natural de Abacaxi" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Suco Natural de Abacaxi</h3>
-                    <p>Feito na hora, 100% fruta e refrescante.</p>
-                    <span>R$ 8,00</span>
+                <div class="item-cardapio">
+                    <img src="/front end/img/suco-natural-morango.jpg" alt="Suco de Morango">
+                    <div class="info-produto">
+                        <h3>Suco Natural de Morango</h3>
+                        <p>Feito na hora, 100% fruta e refrescante</p>
+                        <span>R$ 8,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
 
-  <div class="item-cardapio">
-                <img src="/front end/img/suco-de-abacaxi-com-hortela.webp" alt="Suco Natural de Abacaxi com Hortelã" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Suco Natural de Abacaxi com Hortelã</h3>
-                    <p>Feito na hora, 100% fruta e refrescante.</p>
-                    <span>R$ 10,00</span>
+                <div class="item-cardapio">
+                    <img src="/front end/img/suco de abacaxi normal.jpg" alt="Suco de Abacaxi">
+                    <div class="info-produto">
+                        <h3>Suco Natural de Abacaxi</h3>
+                        <p>Feito na hora, 100% fruta e refrescante</p>
+                        <span>R$ 8,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
 
+                <div class="item-cardapio">
+                    <img src="/front end/img/suco-de-abacaxi-com-hortela.webp" alt="Suco de Abacaxi com Hortelã">
+                    <div class="info-produto">
+                        <h3>Suco de Abacaxi com Hortelã</h3>
+                        <p>Abacaxi e hortelã fresquinhos</p>
+                        <span>R$ 10,00</span>
+                    </div>
+                    <button>Adicionar</button>
+                </div>
 
-            <div class="item-cardapio">
-                <img src="/front end/img/Suco-verde-detox.jpg" alt="Suco Verde Detox" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Suco Verde Detox</h3>
-                    <p>Couve, limão, abacaxi e gengibre batidos na hora.</p>
-                    <span>R$ 10,00</span>
+                <div class="item-cardapio">
+                    <img src="/front end/img/Suco-verde-detox.jpg" alt="Suco Verde">
+                    <div class="info-produto">
+                        <h3>Suco Verde Detox</h3>
+                        <p>Couve, limão, abacaxi e gengibre</p>
+                        <span>R$ 10,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
-            <div class="item-cardapio">
-                <img src="/front end/img/suco frutas vermelhas.webp" alt="Suco de Frutas Vermelhas" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Suco de Frutas Vermelhas</h3>
-                    <p>Morango, framboesa e amora batidos com água ou leite.</p>
-                    <span>R$ 11,00</span>
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/suco frutas vermelhas.webp" alt="Suco de Frutas Vermelhas">
+                    <div class="info-produto">
+                        <h3>Suco de Frutas Vermelhas</h3>
+                        <p>Morango, framboesa e amora</p>
+                        <span>R$ 11,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
-            <div class="item-cardapio">
-                <img src="../img/refrigerante.jpg" alt="Refrigerante Lata" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Refrigerante Lata (350ml)</h3>
-                    <p>Diversos sabores (Coca-Cola, Guaraná, Sprite, etc.).</p>
-                    <span>R$ 6,00</span>
+
+                <div class="item-cardapio">
+                    <img src="../img/refrigerante.jpg" alt="Refrigerante">
+                    <div class="info-produto">
+                        <h3>Refrigerante Lata (350ml)</h3>
+                        <p>Coca-Cola, Guaraná, Sprite e outros sabores</p>
+                        <span>R$ 6,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
+
             </div>
         </section>
 
-        <!-- 4. PÃES, PÃES DE QUEIJO E OMELETES -->
+        <!-- CATEGORIA: PÃES E OMELETES -->
         <section id="paes" class="categoria">
-            <h2>Pães, Pão de Queijo e Omeletes</h2>
-            
-            <div class="item-cardapio">
-                <img src="/front end/img/pao de queijo tradicional.png" alt="Pão de Queijo Tradicional" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Pão de Queijo Tradicional</h3>
-                    <p>Quentinho, crocante por fora e macio por dentro.</p>
-                    <span>R$ 5,00</span>
+            <h2>Pães e Omeletes</h2>
+            <div class="grade-produtos">
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/pao de queijo tradicional.png" alt="Pão de Queijo">
+                    <div class="info-produto">
+                        <h3>Pão de Queijo Tradicional</h3>
+                        <p>Quentinho, crocante por fora e macio por dentro</p>
+                        <span>R$ 5,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
-            <div class="item-cardapio">
-                <img src="/front end/img/Pao-de-queijo-requeijao.webp" alt="Pão de Queijo Recheado" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Pão de Queijo Recheado com Requeijão</h3>
-                    <p>Aquela delícia mineira recheada com muito requeijão cremoso.</p>
-                    <span>R$ 7,50</span>
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/Pao-de-queijo-requeijao.webp" alt="Pão de Queijo Recheado">
+                    <div class="info-produto">
+                        <h3>Pão de Queijo com Requeijão</h3>
+                        <p>Pão de queijo recheado com requeijão cremoso</p>
+                        <span>R$ 7,50</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
-            <div class="item-cardapio">
-                <img src="/front end/img/pao-doce-caseiro.jpg" alt="Pão Doce Caseiro" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Pão Doce Caseiro</h3>
-                    <p>Pão doce macio com cobertura de açúcar cristal.</p>
-                    <span>R$ 6,00</span>
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/pao-doce-caseiro.jpg" alt="Pão Doce">
+                    <div class="info-produto">
+                        <h3>Pão Doce Caseiro</h3>
+                        <p>Pão doce macio com cobertura de açúcar</p>
+                        <span>R$ 6,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
-            <div class="item-cardapio">
-                <img src="/front end/img/pao na chapa.jpg" alt="Pão na Chapa com Manteiga" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Pão na Chapa com Manteiga</h3>
-                    <p>Pão francês fresquinho tostado na chapa com manteiga.</p>
-                    <span>R$ 4,50</span>
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/pao na chapa.jpg" alt="Pão na Chapa">
+                    <div class="info-produto">
+                        <h3>Pão na Chapa com Manteiga</h3>
+                        <p>Pão francês tostado na chapa com manteiga</p>
+                        <span>R$ 4,50</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
-            <div class="item-cardapio">
-                <img src="/front end/img/omelete.jpg" alt="Omelete Completa" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Omelete Completa</h3>
-                    <p>Ovos, queijo derretido, presunto e tomate fresco picadinho.</p>
-                    <span>R$ 14,00</span>
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/omelete.jpg" alt="Omelete">
+                    <div class="info-produto">
+                        <h3>Omelete Completa</h3>
+                        <p>Ovos, queijo, presunto e tomate</p>
+                        <span>R$ 14,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
+
             </div>
         </section>
 
-        <!-- 5. SALGADOS -->
+        <!-- CATEGORIA: SALGADOS -->
         <section id="salgados" class="categoria">
             <h2>Salgados</h2>
-            
-            <div class="item-cardapio">
-                <img src="/front end/img/coxinha.jpg" alt="Coxinha de Frango com Catupiry" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Coxinha de Frango </h3>
-                    <p>Massa crocante e recheio cremoso de frango desfiado.</p>
-                    <span>R$ 8,50</span>
+            <div class="grade-produtos">
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/coxinha.jpg" alt="Coxinha">
+                    <div class="info-produto">
+                        <h3>Coxinha de Frango</h3>
+                        <p>Massa crocante e recheio cremoso de frango</p>
+                        <span>R$ 8,50</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
-            <div class="item-cardapio">
-                <img src="/front end/img/kibe-frito.jpg" alt="Kibe Frito" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Kibe Frito</h3>
-                    <p>Kibe crocante temperado com especiarias e carne selecionada.</p>
-                    <span>R$ 8,00</span>
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/kibe-frito.jpg" alt="Kibe">
+                    <div class="info-produto">
+                        <h3>Kibe Frito</h3>
+                        <p>Kibe crocante temperado com especiarias</p>
+                        <span>R$ 8,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
-            <div class="item-cardapio">
-                <img src="/front end/img/esfirra-de-carne.jpg" alt="Esfiha de Carne" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Esfiha de Carne</h3>
-                    <p>Massa assada macia com recheio suculento de carne.</p>
-                    <span>R$ 8,00</span>
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/esfirra-de-carne.jpg" alt="Esfiha">
+                    <div class="info-produto">
+                        <h3>Esfiha de Carne</h3>
+                        <p>Massa assada macia com recheio de carne</p>
+                        <span>R$ 8,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
-            <div class="item-cardapio">
-                <img src="/front end/img/empada.webp" alt="Empadão de Frango" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Empadão de Frango</h3>
-                    <p>Fatia de empadão amanteigado recheado com frango e azeitona.</p>
-                    <span>R$ 9,50</span>
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/empada.webp" alt="Empadão">
+                    <div class="info-produto">
+                        <h3>Empadão de Frango</h3>
+                        <p>Massa amanteigada recheada com frango</p>
+                        <span>R$ 9,50</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
+
             </div>
         </section>
 
-        <!-- 6. BOLOS E SOBREMESAS -->
+        <!-- CATEGORIA: BOLOS E DOCES -->
         <section id="doces" class="categoria">
-            <h2>Bolos, Sobremesas e Saladas de Frutas</h2>
-            
-            <div class="item-cardapio">
-                <img src="/front end/img/Bolo-de-chocolate.webp" alt="Bolo de Chocolate" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Fatia de Bolo de Chocolate</h3>
-                    <p>Bolo fofinho com cobertura generosa de chocolate cremosa.</p>
-                    <span>R$ 10,00</span>
+            <h2>Bolos e Doces</h2>
+            <div class="grade-produtos">
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/Bolo-de-chocolate.webp" alt="Bolo de Chocolate">
+                    <div class="info-produto">
+                        <h3>Bolo de Chocolate</h3>
+                        <p>Bolo fofinho com cobertura de chocolate</p>
+                        <span>R$ 10,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
-            <div class="item-cardapio">
-                <img src="/front end/img/bolo_cenoura.jpg" alt="Bolo de Cenoura" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Fatia de Bolo de Cenoura com Chocolate</h3>
-                    <p>O clássico bolo de cenoura com casquinha crocante de chocolate.</p>
-                    <span>R$ 9,50</span>
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/bolo_cenoura.jpg" alt="Bolo de Cenoura">
+                    <div class="info-produto">
+                        <h3>Bolo de Cenoura com Chocolate</h3>
+                        <p>Clássico bolo de cenoura com chocolate</p>
+                        <span>R$ 9,50</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
-            <div class="item-cardapio">
-                <img src="/front end/img/bolo-de-fuba-cremoso.webp" alt="Bolo de Fubá Cremoso" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Bolo de Fubá Cremoso</h3>
-                    <p>Fatia de bolo caseiro de fubá com aquela textura cremosa.</p>
-                    <span>R$ 8,00</span>
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/bolo-de-fuba-cremoso.webp" alt="Bolo de Fubá">
+                    <div class="info-produto">
+                        <h3>Bolo de Fubá Cremoso</h3>
+                        <p>Bolo caseiro de fubá com textura cremosa</p>
+                        <span>R$ 8,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
-            <div class="item-cardapio">
-                <img src="/front end/img/salada-de-frutas-no-copo.webp" alt="Salada de Frutas" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Salada de Frutas</h3>
-                    <p>Mix de frutas frescas da estação picadas (com opção de leite condensado ou mel).</p>
-                    <span>R$ 10,00</span>
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/salada-de-frutas-no-copo.webp" alt="Salada de Frutas">
+                    <div class="info-produto">
+                        <h3>Salada de Frutas</h3>
+                        <p>Mix de frutas frescas da estação</p>
+                        <span>R$ 10,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
-            </div>
-            <div class="item-cardapio">
-                <img src="/front end/img/tortinha-de-limao.jpg" alt="Tortinha de Limão" class="foto-produto">
-                <div class="info-produto">
-                    <h3>Tortinha de Limão</h3>
-                    <p>Massa crocante, recheio cítrico e cobertura de suspiro leve.</p>
-                    <span>R$ 11,00</span>
+
+                <div class="item-cardapio">
+                    <img src="/front end/img/tortinha-de-limao.jpg" alt="Tortinha de Limão">
+                    <div class="info-produto">
+                        <h3>Tortinha de Limão</h3>
+                        <p>Massa crocante com recheio cítrico e suspiro</p>
+                        <span>R$ 11,00</span>
+                    </div>
+                    <button>Adicionar</button>
                 </div>
-                <button>Adicionar</button>
+
             </div>
         </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2026 Laricafé. Todos os direitos reservados.</p>
-    </footer>
+    </main>
+</div>
+
+<footer>
+    <p>&copy; 2026 LariCafé. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+    const produtos = document.querySelectorAll(".item-cardapio");
+
+    let carrinho = JSON.parse(localStorage.getItem("laricafeCarrinho")) || [];
+
+    produtos.forEach((produto) => {
+        const botao = produto.querySelector("button");
+
+        botao.addEventListener("click", () => {
+            const nome = produto.querySelector("h3").textContent.trim();
+            const descricao = produto.querySelector("p").textContent.trim();
+            const precoTexto = produto.querySelector("span").textContent;
+
+            const preco = Number(
+                precoTexto.replace(/[^\d,]/g, "").replace(",", ".")
+            );
+
+            const imagem = produto.querySelector("img").src;
+
+            const produtoExistente = carrinho.find(item => item.nome === nome);
+
+            if (produtoExistente) {
+                produtoExistente.quantidade++;
+            } else {
+                carrinho.push({
+                    nome,
+                    descricao,
+                    preco,
+                    imagem,
+                    quantidade: 1
+                });
+            }
+
+            localStorage.setItem("laricafeCarrinho", JSON.stringify(carrinho));
+
+            const textoOriginal = botao.textContent;
+            botao.textContent = "Adicionado!";
+
+            setTimeout(() => {
+                botao.textContent = textoOriginal;
+            }, 1000);
+        });
+    });
+</script>
+
 </body>
 </html>

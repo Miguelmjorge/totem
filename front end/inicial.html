@@ -3,34 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início - Laricafé</title>
+    <title>Início - LariCafé</title>
+    <link rel="stylesheet" href="css/menu.css">
+</head>
+<body class="pagina-inicial">
 
-
-    <link rel="stylesheet" href="css/menu.css"></head>
-<body>
-
-    <header>
-        <h1>Bem-vindo à Laricafé</h1>
-        <nav>
-            <ul>
-                <li><a href="inicial.html">Início</a></li>
-                <li><a href="pages/menu.html">Cardápio</a></li>
-                <li><a href="pages/carrinho.html">Carrinho</a></li>
-            </ul>
-        </nav>
+    <header class="header-inicial">
+        <h1>Bem-vindo à LariCafé</h1>
     </header>
 
-    <main>
-        <section>
-            <h2>O café mais gostoso da Praia Grande</h2>
-            <p>Conheça nossas opções de cafés especiais, salgados, bolos, pães e tudo de bom que temos para você!</p>
-          <br>  <a href="menu.html" class="btn">Ver cardápio</a>
-        </section>
-    </main>
+
+    <main class="tela-inicial">
+    <img src="img/LariCafé (1).svg" alt="Logo Laricafé" class="logo-inicial">
+
+    <h2>O café mais gostoso da Praia Grande</h2>
+
+    <p>Conheça nossas opções de cafés especiais,sucos, salgados, bolos, pães e tudo de bom que temos para você!</p>
+
+    <a href="pages/menu.html" class="btn-iniciar" id="btnIniciar">
+        TOQUE AQUI PARA INICIAR
+    </a>
+
+    <div class="animacao-graos" id="animacaoGraos">
+        <span class="grao grao1"></span>
+        <span class="grao grao2"></span>
+        <span class="grao grao3"></span>
+        <span class="grao grao4"></span>
+        <span class="grao grao5"></span>
+        <span class="grao grao6"></span>
+        <span class="grao grao7"></span>
+        <span class="grao grao8"></span>
+    </div>
+</main>
+
 
     <footer>
-        <p>&copy; 2026 Laricafé. Todos os direitos reservados.</p>
+        <p>&copy; 2026 LariCafé. Todos os direitos reservados.</p>
     </footer>
+
+<script>
+    const botao = document.getElementById("btnIniciar");
+
+    botao.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        document.body.classList.add("animando");
+
+        setTimeout(function() {
+            window.location.href = botao.href;
+        }, 1400);
+    });
+</script>
 
 </body>
 </html>
