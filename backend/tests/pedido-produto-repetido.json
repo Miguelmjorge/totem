@@ -1,0 +1,14 @@
+{
+    "itens": [
+        {
+            "id_produto": 1,
+            "quantidade": 5,
+            "opcoes": []
+        },
+        {
+            "id_produto": 1,
+            "quantidade": 4,
+            "opcoes": []
+        }
+    ]
+}
