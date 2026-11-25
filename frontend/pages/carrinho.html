@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -106,11 +106,11 @@
         }
 
 
-.remover-produto {
-    background: transparent !important;
-    color: #a04435;
-    border: none;
-}
+        .remover-produto {
+            background: transparent !important;
+            color: #a04435;
+            border: none;
+        }
 
         .resumo-carrinho {
             background: #FFFDF8;
@@ -184,194 +184,216 @@
                 flex-direction: column;
             }
         }
+
+        .botoes-carrinho button {
+            padding: 13px 20px;
+            border: none;
+            border-radius: 8px;
+            font: inherit;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        #mensagemPedido {
+            margin-bottom: 20px;
+            white-space: pre-line;
+        }
     </style>
 </head>
 
 <body class="pagina-carrinho">
 
-<header>
-    <h1>LariCafé</h1>
-    <nav>
-        <a href="../inicial.html">Início</a>
-        <a href="menu.html">Cardápio</a>
-    </nav>
-</header>
+    <header>
+        <h1>LariCafé</h1>
+        <nav>
+            <a href="../inicial.html">Início</a>
+            <a href="menu.html">Cardápio</a>
+        </nav>
+    </header>
 
-<main class="conteudo-carrinho">
+    <main class="conteudo-carrinho">
 
-    <h2 class="titulo-carrinho">Meu carrinho 🛒</h2>
+        <h2 class="titulo-carrinho">Meu carrinho 🛒</h2>
 
-    <div id="listaCarrinho" class="lista-carrinho"></div>
+        <p id="mensagemPedido" role="status" aria-live="polite"></p>
 
-    <div id="resumoCarrinho" class="resumo-carrinho" hidden>
-        <div>
-            <p>Total do pedido</p>
-            <p class="total-carrinho" id="totalCarrinho">R$ 0,00</p>
+        <div id="listaCarrinho" class="lista-carrinho"></div>
+
+        <div id="resumoCarrinho" class="resumo-carrinho" hidden>
+            <div>
+                <p>Total do pedido</p>
+                <p class="total-carrinho" id="totalCarrinho">R$ 0,00</p>
+            </div>
+
+            <div class="botoes-carrinho">
+                <a href="menu.html" class="voltar-cardapio">
+                    Continuar comprando
+                </a>
+
+                <button type="button" id="confirmarPedido" class="continuar-pedido">
+                    Confirmar pedido
+                </button>
+            </div>
         </div>
 
-        <div class="botoes-carrinho">
-            <a href="menu.html" class="voltar-cardapio">
-                Continuar comprando
-            </a>
+    </main>
 
-            <a href="retirada.html" class="continuar-pedido">
-                Peça e retire
-            </a>
-        </div>
-    </div>
+    <script>
+        // Recupera os produtos salvos no navegador
+        let carrinho = JSON.parse(
+            localStorage.getItem("laricafeCarrinho")
+        ) || [];
 
-</main>
+        const lista = document.getElementById("listaCarrinho");
+        const resumo = document.getElementById("resumoCarrinho");
+        const totalElemento = document.getElementById("totalCarrinho");
 
-<script>
-    // Recupera os produtos salvos no navegador
-    let carrinho = JSON.parse(
-        localStorage.getItem("laricafeCarrinho")
-    ) || [];
+        // Formata os valores para reais
+        const formatarPreco = (valor) => {
+            return valor.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL"
+            });
+        };
 
-    const lista = document.getElementById("listaCarrinho");
-    const resumo = document.getElementById("resumoCarrinho");
-    const totalElemento = document.getElementById("totalCarrinho");
-
-    // Formata os valores para reais
-    const formatarPreco = (valor) => {
-        return valor.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL"
-        });
-    };
-
-    // Salva as alterações no carrinho
-    function salvarCarrinho() {
-        localStorage.setItem(
-            "laricafeCarrinho",
-            JSON.stringify(carrinho)
-        );
-    }
-
-    // Atualiza os produtos exibidos na tela
-    function atualizarCarrinho() {
-        lista.innerHTML = "";
-
-        // Verifica se o carrinho está vazio
-        if (carrinho.length === 0) {
-            resumo.hidden = true;
-
-            const vazio = document.createElement("div");
-            vazio.className = "carrinho-vazio";
-
-            const titulo = document.createElement("h3");
-            titulo.textContent = "Seu carrinho está vazio";
-
-            const mensagem = document.createElement("p");
-            mensagem.textContent =
-                "Que tal escolher alguma delícia do nosso cardápio?";
-
-            const link = document.createElement("a");
-            link.href = "menu.html";
-            link.className = "continuar-pedido";
-            link.textContent = "Ver cardápio";
-            link.style.display = "inline-block";
-            link.style.padding = "13px 20px";
-            link.style.borderRadius = "8px";
-            link.style.textDecoration = "none";
-
-            vazio.append(titulo, mensagem, link);
-            lista.appendChild(vazio);
-
-            return;
-        }
-
-        resumo.hidden = false;
-
-        let total = 0;
-
-        carrinho.forEach((produto, indice) => {
-            total += produto.preco * produto.quantidade;
-
-            const card = document.createElement("article");
-            card.className = "produto-carrinho";
-
-            const imagem = document.createElement("img");
-            imagem.src = produto.imagem;
-            imagem.alt = produto.nome;
-
-            const detalhes = document.createElement("div");
-            detalhes.className = "detalhes-produto";
-
-            const nome = document.createElement("h3");
-            nome.textContent = produto.nome;
-
-            const descricao = document.createElement("p");
-            descricao.textContent = produto.descricao || "";
-
-            const preco = document.createElement("span");
-            preco.className = "preco-produto";
-            preco.textContent = formatarPreco(produto.preco);
-
-            // Cria os controles de quantidade
-            const controles = document.createElement("div");
-            controles.className = "controles-quantidade";
-
-            const diminuir = document.createElement("button");
-            diminuir.textContent = "−";
-            diminuir.setAttribute("aria-label", "Diminuir quantidade");
-            diminuir.onclick = () => alterarQuantidade(indice, -1);
-
-            const quantidade = document.createElement("span");
-            quantidade.textContent = produto.quantidade;
-
-            const aumentar = document.createElement("button");
-            aumentar.textContent = "+";
-            aumentar.setAttribute("aria-label", "Aumentar quantidade");
-            aumentar.onclick = () => alterarQuantidade(indice, 1);
-
-            controles.append(diminuir, quantidade, aumentar);
-
-            // Botão para remover o produto
-            const remover = document.createElement("button");
-            remover.className = "remover-produto";
-            remover.textContent = "Remover produto";
-            remover.onclick = () => removerProduto(indice);
-
-            detalhes.append(
-                nome,
-                descricao,
-                preco,
-                controles,
-                remover
+        // Salva as alterações no carrinho
+        function salvarCarrinho() {
+            localStorage.setItem(
+                "laricafeCarrinho",
+                JSON.stringify(carrinho)
             );
-
-            card.append(imagem, detalhes);
-            lista.appendChild(card);
-        });
-
-        // Atualiza o valor total
-        totalElemento.textContent = formatarPreco(total);
-    }
-
-    // Aumenta ou diminui a quantidade
-    function alterarQuantidade(indice, valor) {
-        carrinho[indice].quantidade += valor;
-
-        if (carrinho[indice].quantidade <= 0) {
-            carrinho.splice(indice, 1);
         }
 
-        salvarCarrinho();
+        // Atualiza os produtos exibidos na tela
+        function atualizarCarrinho() {
+            lista.innerHTML = "";
+
+            // Verifica se o carrinho está vazio
+            if (carrinho.length === 0) {
+                resumo.hidden = true;
+
+                const vazio = document.createElement("div");
+                vazio.className = "carrinho-vazio";
+
+                const titulo = document.createElement("h3");
+                titulo.textContent = "Seu carrinho está vazio";
+
+                const mensagem = document.createElement("p");
+                mensagem.textContent =
+                    "Que tal escolher alguma delícia do nosso cardápio?";
+
+                const link = document.createElement("a");
+                link.href = "menu.html";
+                link.className = "continuar-pedido";
+                link.textContent = "Ver cardápio";
+                link.style.display = "inline-block";
+                link.style.padding = "13px 20px";
+                link.style.borderRadius = "8px";
+                link.style.textDecoration = "none";
+
+                vazio.append(titulo, mensagem, link);
+                lista.appendChild(vazio);
+
+                return;
+            }
+
+            resumo.hidden = false;
+
+            let total = 0;
+
+            carrinho.forEach((produto, indice) => {
+                total += produto.preco * produto.quantidade;
+
+                const card = document.createElement("article");
+                card.className = "produto-carrinho";
+
+                const imagem = document.createElement("img");
+                imagem.src = produto.imagem;
+                imagem.alt = produto.nome;
+
+                const detalhes = document.createElement("div");
+                detalhes.className = "detalhes-produto";
+
+                const nome = document.createElement("h3");
+                nome.textContent = produto.nome;
+
+                const descricao = document.createElement("p");
+                descricao.textContent = produto.descricao || "";
+
+                const preco = document.createElement("span");
+                preco.className = "preco-produto";
+                preco.textContent = formatarPreco(produto.preco);
+
+                // Cria os controles de quantidade
+                const controles = document.createElement("div");
+                controles.className = "controles-quantidade";
+
+                const diminuir = document.createElement("button");
+                diminuir.textContent = "−";
+                diminuir.setAttribute("aria-label", "Diminuir quantidade");
+                diminuir.onclick = () => alterarQuantidade(indice, -1);
+
+                const quantidade = document.createElement("span");
+                quantidade.textContent = produto.quantidade;
+
+                const aumentar = document.createElement("button");
+                aumentar.textContent = "+";
+                aumentar.setAttribute("aria-label", "Aumentar quantidade");
+                aumentar.onclick = () => alterarQuantidade(indice, 1);
+
+                controles.append(diminuir, quantidade, aumentar);
+
+                // Botão para remover o produto
+                const remover = document.createElement("button");
+                remover.className = "remover-produto";
+                remover.textContent = "Remover produto";
+                remover.onclick = () => removerProduto(indice);
+
+                detalhes.append(
+                    nome,
+                    descricao,
+                    preco,
+                    controles,
+                    remover
+                );
+
+                card.append(imagem, detalhes);
+                lista.appendChild(card);
+            });
+
+            // Atualiza o valor total
+            totalElemento.textContent = formatarPreco(total);
+        }
+
+        // Aumenta ou diminui a quantidade
+        function alterarQuantidade(indice, valor) {
+            carrinho[indice].quantidade += valor;
+
+            if (carrinho[indice].quantidade <= 0) {
+                carrinho.splice(indice, 1);
+            }
+
+            salvarCarrinho();
+            atualizarCarrinho();
+        }
+
+        // Remove um produto do carrinho
+        function removerProduto(indice) {
+            carrinho.splice(indice, 1);
+
+            salvarCarrinho();
+            atualizarCarrinho();
+        }
+
+        // Exibe o carrinho ao abrir a página
         atualizarCarrinho();
-    }
-
-    // Remove um produto do carrinho
-    function removerProduto(indice) {
-        carrinho.splice(indice, 1);
-
-        salvarCarrinho();
-        atualizarCarrinho();
-    }
-
-    // Exibe o carrinho ao abrir a página
-    atualizarCarrinho();
-</script>
-
+    </script>
+    <script src="../js/finalizar-pedido.js"></script>
 </body>
+
 </html>
