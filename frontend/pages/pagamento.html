@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagamento - LariCafé</title>
     <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/pagamento.css">
 
     <style>
         .pagamento {
@@ -87,10 +88,7 @@
             outline-offset: 3px;
         }
 
-        .aviso-retorno {
-            margin-top: 12px;
-            color: #53392c;
-        }
+
     </style>
 </head>
 
@@ -109,9 +107,13 @@
 
         <h2>Pagamento</h2>
 
-        <p class="aviso-retorno">
-            Voltar não cancela seu pedido. Você poderá continuar o pagamento.
-        </p>
+        <aside class="aviso-retorno" aria-label="Seu pedido está salvo">
+            <span class="aviso-icone" aria-hidden="true">✓</span>
+            <div><strong>Seu pedido está salvo!</strong>
+                <p>Pode voltar e explorar o cardápio à vontade. Seu pedido continuará reservado para pagamento.</p>
+                <a href="menu.html">Ver opções do cardápio →</a>
+            </div>
+        </aside>
 
         <p class="aviso-demonstracao">
             Modo demonstração — nenhuma cobrança será realizada.

@@ -232,9 +232,7 @@ botaoConfirmar.addEventListener("click", async () => {
     atualizarRetomadaPagamento();
 
     if (localStorage.getItem("laricafeCarrinho") === carrinhoSalvo) {
-      localStorage.removeItem("laricafeCarrinho");
-      carrinho = [];
-      atualizarCarrinho();
+      // Mantém os itens visíveis; o pedido existente bloqueia novo envio e edição.
 
       sessionStorage.removeItem(CHAVE_PENDENTE);
 

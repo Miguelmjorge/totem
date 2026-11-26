@@ -137,13 +137,19 @@ async function carregarProdutos() {
   cardapio.textContent = "Carregando cardápio...";
 
   try {
-    const resposta = await fetch("../../backend/public/cardapio.php");
-
-    if (!resposta.ok) {
-      throw new Error("Não foi possível carregar o cardápio.");
+    let dados;
+    let demonstracao = false;
+    try {
+      const resposta = await fetch("../../backend/public/cardapio.php", {cache: "no-store"});
+      if (!resposta.ok) throw new Error("Não foi possível carregar o cardápio.");
+      dados = await resposta.json();
+    } catch (erro) {
+      if (!['localhost', '127.0.0.1', '[::1]'].includes(location.hostname)) throw erro;
+      const resposta = await fetch('../js/cardapio-preview.json');
+      if (!resposta.ok) throw erro;
+      dados = await resposta.json();
+      demonstracao = true;
     }
-
-    const dados = await resposta.json();
 
     if (
       !Array.isArray(dados.categorias) ||
@@ -193,6 +199,14 @@ async function carregarProdutos() {
     }
 
     cardapio.replaceChildren(conteudo);
+    if (demonstracao) {
+      const aviso = document.createElement('p');
+      aviso.textContent = 'Prévia local: catálogo de demonstração. Para registrar pedidos, inicie o servidor PHP e o banco de dados.';
+      aviso.setAttribute('role', 'status');
+      cardapio.prepend(aviso);
+    }
+    const alvo = document.getElementById(location.hash.slice(1));
+    if (alvo) alvo.scrollIntoView({block: 'start'});
   } catch (erro) {
     console.error(erro);
     cardapio.textContent =
@@ -201,3 +215,6 @@ async function carregarProdutos() {
 }
 
 carregarProdutos();
+window.addEventListener('pageshow', (evento) => {
+  if (evento.persisted) carregarProdutos();
+});

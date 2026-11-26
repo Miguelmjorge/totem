@@ -1,0 +1,302 @@
+{
+  "categorias": [
+    {
+      "id_categoria": 1,
+      "nome_categoria": "Cafés Quentes"
+    },
+    {
+      "id_categoria": 2,
+      "nome_categoria": "Cafés Gelados"
+    },
+    {
+      "id_categoria": 3,
+      "nome_categoria": "Outras Bebidas"
+    },
+    {
+      "id_categoria": 4,
+      "nome_categoria": "Pães e Omeletes"
+    },
+    {
+      "id_categoria": 5,
+      "nome_categoria": "Salgados"
+    },
+    {
+      "id_categoria": 6,
+      "nome_categoria": "Bolos e Doces"
+    }
+  ],
+  "produtos": [
+    {
+      "id_produto": 1,
+      "nome": "Espresso Tradicional",
+      "descricao": "Café curto, encorpado e aromático",
+      "preco": "6.00",
+      "imagem": "https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTEyL3Jhd3BpeGVsb2ZmaWNlN19waG90b19vZl9jb2ZmZWVfY3VwX29mX2FtZXJpY2Fub19uYXR1cmFsX2xpZ2h0X19mMjZkZDE3Yy1mYTBkLTQ0NzAtOThmYS1iYmFiNGI3ZWM5NmFfMS5qcGc.jpg",
+      "id_categoria": 1
+    },
+    {
+      "id_produto": 2,
+      "nome": "Espresso Duplo",
+      "descricao": "Dose em dobro para quem ama um café forte",
+      "preco": "8.50",
+      "imagem": "https://t4.ftcdn.net/jpg/00/06/86/53/360_F_6865318_1vv4kgFXbpAe0CGWzRa3msKRnc0Nr5pj.jpg",
+      "id_categoria": 1
+    },
+    {
+      "id_produto": 3,
+      "nome": "Cappuccino Cremoso",
+      "descricao": "Espresso, leite vaporizado, cacau e um toque de canela",
+      "preco": "10.00",
+      "imagem": "https://tse2.mm.bing.net/th/id/OIP.j49o--LsgMdl3E1-ezRpkgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "id_categoria": 1
+    },
+    {
+      "id_produto": 4,
+      "nome": "Café com Leite",
+      "descricao": "A clássica combinação da casa com um leite quentinho",
+      "preco": "7.00",
+      "imagem": "https://www.maquinascafeexpresso.com/wp-content/uploads/2019/07/quais-sao-caracteristicas-cafe-leite-2.jpg",
+      "id_categoria": 1
+    },
+    {
+      "id_produto": 5,
+      "nome": "Latte Macchiato",
+      "descricao": "Leite vaporizado com uma mancha de espresso",
+      "preco": "10.50",
+      "imagem": "https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/latte_macchiato.jpg",
+      "id_categoria": 1
+    },
+    {
+      "id_produto": 6,
+      "nome": "Mocha",
+      "descricao": "Espresso, calda de chocolate, leite vaporizado e chantilly",
+      "preco": "12.00",
+      "imagem": "https://i.pinimg.com/736x/71/53/9a/71539aff0387ab8c23476269d357624e.jpg",
+      "id_categoria": 1
+    },
+    {
+      "id_produto": 7,
+      "nome": "Café Coado",
+      "descricao": "Café filtrado na hora, leve e muito aromático",
+      "preco": "6.50",
+      "imagem": "https://tudodelicious.com/wp-content/uploads/2026/04/Cafe-coado-perfeito.png",
+      "id_categoria": 1
+    },
+    {
+      "id_produto": 8,
+      "nome": "Iced Latte",
+      "descricao": "Espresso, leite gelado e cubos de gelo",
+      "preco": "11.00",
+      "imagem": "https://www.forkinthekitchen.com/wp-content/uploads/2022/07/220629.iced_.latte_.vanilla-8882.jpg",
+      "id_categoria": 2
+    },
+    {
+      "id_produto": 9,
+      "nome": "Iced Mocha",
+      "descricao": "Café gelado com calda de chocolate, leite e gelo",
+      "preco": "14.00",
+      "imagem": "https://www.everyday-delicious.com/wp-content/uploads/2022/07/iced-mocha-everyday-delicious-1.jpg",
+      "id_categoria": 2
+    },
+    {
+      "id_produto": 10,
+      "nome": "Frappé de Café",
+      "descricao": "Café batido com gelo, leite e cobertura de chantilly.",
+      "preco": "14.00",
+      "imagem": "https://editorialtelevisa.brightspotcdn.com/dims4/default/5a6ee05/2147483647/strip/true/crop/1200x675+0+13/resize/1440x810!/quality/90/?url=https:%2F%2Fk2-prod-editorial-televisa.s3.us-east-1.amazonaws.com%2Fbrightspot%2Fb1%2Fa7%2Fc1ff8bd04c80a69f2354235e4cfd%2Ffrappe-de-cafe.jpg",
+      "id_categoria": 2
+    },
+    {
+      "id_produto": 11,
+      "nome": "Cold Brew",
+      "descricao": "Café extraído a frio por 12 horas, super refrescante.",
+      "preco": "12.00",
+      "imagem": "https://tse4.mm.bing.net/th/id/OIP.l2mhvIVQBPtcOIl3HWDfPAHaJQ?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "id_categoria": 2
+    },
+    {
+      "id_produto": 12,
+      "nome": "Suco Natural de Laranja",
+      "descricao": "Feito na hora, 100% fruta e refrescante.",
+      "preco": "8.00",
+      "imagem": "https://chefpvshow.com.br/wp-content/uploads/2026/03/suco-de-laranja-do-chef-pv-show-1-1024x683.png",
+      "id_categoria": 3
+    },
+    {
+      "id_produto": 13,
+      "nome": "Suco Natural de Maracujá",
+      "descricao": "Feito na hora, 100% fruta e refrescante.",
+      "preco": "8.00",
+      "imagem": "https://www.estadao.com.br/resizer/v2/C3ZO473O5FHL7JY53KXPYALU54.jpeg?quality=80&auth=39e4a319f3c0bd9a4fb20e29095316cdd4a582ae6d4e2cab5008382ee2f1d96e&width=1200",
+      "id_categoria": 3
+    },
+    {
+      "id_produto": 14,
+      "nome": "Suco Natural de Limão",
+      "descricao": "Feito na hora, 100% fruta e refrescante.",
+      "preco": "8.00",
+      "imagem": "https://tse1.mm.bing.net/th/id/OIP.o15KSiHGwDZZQrNkx08mOgHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "id_categoria": 3
+    },
+    {
+      "id_produto": 15,
+      "nome": "Suco Natural de Morango",
+      "descricao": "Feito na hora, 100% fruta e refrescante.",
+      "preco": "8.00",
+      "imagem": "https://vitat.com.br/receitas/images/recipeshandler.jpg?id=48368&tipo=r&default=s&ims=fit-in/414x275/filters:quality(60)",
+      "id_categoria": 3
+    },
+    {
+      "id_produto": 16,
+      "nome": "Suco Natural de Abacaxi",
+      "descricao": "Feito na hora, 100% fruta e refrescante.",
+      "preco": "8.00",
+      "imagem": "https://tse2.mm.bing.net/th/id/OIP._mmQlDxNDGaX93Pb_ObvgQHaFT?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "id_categoria": 3
+    },
+    {
+      "id_produto": 17,
+      "nome": "Suco Natural de Abacaxi com Hortelã",
+      "descricao": "Feito na hora, 100% fruta e refrescante.",
+      "preco": "10.00",
+      "imagem": "https://tse2.mm.bing.net/th/id/OIP.AmyCi1KEzSbkTsK59z7t-AHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "id_categoria": 3
+    },
+    {
+      "id_produto": 18,
+      "nome": "Suco Verde Detox",
+      "descricao": "Couve, limão, abacaxi e gengibre batidos na hora.",
+      "preco": "10.00",
+      "imagem": "",
+      "id_categoria": 3
+    },
+    {
+      "id_produto": 19,
+      "nome": "Suco de Frutas Vermelhas",
+      "descricao": "Morango, framboesa e amora batidos com água ou leite.",
+      "preco": "11.00",
+      "imagem": "",
+      "id_categoria": 3
+    },
+    {
+      "id_produto": 20,
+      "nome": "Refrigerante Lata (350ml)",
+      "descricao": "Diversos sabores (Coca-Cola, Guaraná, Sprite, etc.).",
+      "preco": "6.00",
+      "imagem": "",
+      "id_categoria": 3
+    },
+    {
+      "id_produto": 21,
+      "nome": "Pão de Queijo Tradicional",
+      "descricao": "Quentinho, crocante por fora e macio por dentro.",
+      "preco": "5.00",
+      "imagem": "",
+      "id_categoria": 4
+    },
+    {
+      "id_produto": 22,
+      "nome": "Pão de Queijo Recheado com Requeijão",
+      "descricao": "Aquela delícia mineira recheada com muito requeijão cremoso.",
+      "preco": "7.50",
+      "imagem": "",
+      "id_categoria": 4
+    },
+    {
+      "id_produto": 23,
+      "nome": "Pão Doce Caseiro",
+      "descricao": "Pão doce macio com cobertura de açúcar cristal.",
+      "preco": "6.00",
+      "imagem": "",
+      "id_categoria": 4
+    },
+    {
+      "id_produto": 24,
+      "nome": "Pão na Chapa com Manteiga",
+      "descricao": "Pão francês fresquinho tostado na chapa com manteiga.",
+      "preco": "4.50",
+      "imagem": "",
+      "id_categoria": 4
+    },
+    {
+      "id_produto": 25,
+      "nome": "Omelete Completa",
+      "descricao": "Ovos, queijo derretido, presunto e tomate fresco picadinho.",
+      "preco": "14.00",
+      "imagem": "",
+      "id_categoria": 4
+    },
+    {
+      "id_produto": 26,
+      "nome": "Coxinha de Frango com Catupiry",
+      "descricao": "Massa crocante e recheio cremoso de frango desfiado.",
+      "preco": "8.50",
+      "imagem": "",
+      "id_categoria": 5
+    },
+    {
+      "id_produto": 27,
+      "nome": "Kibe Frito",
+      "descricao": "Kibe crocante temperado com especiarias e carne selecionada.",
+      "preco": "8.00",
+      "imagem": "",
+      "id_categoria": 5
+    },
+    {
+      "id_produto": 28,
+      "nome": "Esfiha de Carne",
+      "descricao": "Massa assada macia com recheio suculento de carne.",
+      "preco": "8.00",
+      "imagem": "",
+      "id_categoria": 5
+    },
+    {
+      "id_produto": 29,
+      "nome": "Empadão de Frango",
+      "descricao": "Fatia de empadão amanteigado recheado com frango e azeitona.",
+      "preco": "9.50",
+      "imagem": "",
+      "id_categoria": 5
+    },
+    {
+      "id_produto": 30,
+      "nome": "Fatia de Bolo de Chocolate",
+      "descricao": "Bolo fofinho com cobertura generosa de chocolate cremosa.",
+      "preco": "10.00",
+      "imagem": "",
+      "id_categoria": 6
+    },
+    {
+      "id_produto": 31,
+      "nome": "Fatia de Bolo de Cenoura com Chocolate",
+      "descricao": "O clássico bolo de cenoura com casquinha crocante de chocolate.",
+      "preco": "9.50",
+      "imagem": "",
+      "id_categoria": 6
+    },
+    {
+      "id_produto": 32,
+      "nome": "Bolo de Fubá Cremoso",
+      "descricao": "Fatia de bolo caseiro de fubá com aquela textura cremosa.",
+      "preco": "8.00",
+      "imagem": "",
+      "id_categoria": 6
+    },
+    {
+      "id_produto": 33,
+      "nome": "Salada de Frutas",
+      "descricao": "Mix de frutas frescas da estação picadas (com opção de leite condensado ou mel).",
+      "preco": "10.00",
+      "imagem": "",
+      "id_categoria": 6
+    },
+    {
+      "id_produto": 34,
+      "nome": "Tortinha de Limão",
+      "descricao": "Massa crocante, recheio cítrico e cobertura de suspiro leve.",
+      "preco": "11.00",
+      "imagem": "",
+      "id_categoria": 6
+    }
+  ]
+}
