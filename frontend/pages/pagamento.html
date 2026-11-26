@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento - LariCafé</title>
+    <link rel="stylesheet" href="../css/menu.css">
+
+    <style>
+        .pagamento {
+            max-width: 760px;
+            margin: 40px auto;
+            padding: 24px;
+            color: #53392c;
+        }
+
+        .painel {
+            background: #fffdf8;
+            padding: 28px;
+            border-radius: 14px;
+            margin-top: 20px;
+        }
+
+        .metodos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0;
+        }
+
+        .metodos button {
+            padding: 18px 24px;
+            border: 2px solid #5d6b4c;
+            border-radius: 10px;
+            background: white;
+            color: #53392c;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .metodos button[aria-pressed="true"] {
+            background: #5d6b4c;
+            color: white;
+        }
+
+        .metodos button:focus-visible {
+            outline: 3px solid #53392c;
+            outline-offset: 3px;
+        }
+
+        #instrucaoPagamento {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .aviso-demonstracao {
+            margin-top: 16px;
+            font-size: 0.95rem;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        .navegacao-pagamento {
+            margin-bottom: 24px;
+        }
+
+        .voltar-pedido {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 48px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            background: #ded6c8;
+            color: #53392c;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .voltar-pedido:focus-visible {
+            outline: 3px solid #53392c;
+            outline-offset: 3px;
+        }
+
+        .aviso-retorno {
+            margin-top: 12px;
+            color: #53392c;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>LariCafé</h1>
+    </header>
+
+    <main class="pagamento">
+        <nav class="navegacao-pagamento" aria-label="Navegação do pedido">
+            <a href="carrinho.html" class="voltar-pedido">
+                <span aria-hidden="true">←</span>
+                Voltar ao meu pedido
+            </a>
+        </nav>
+
+        <h2>Pagamento</h2>
+
+        <p class="aviso-retorno">
+            Voltar não cancela seu pedido. Você poderá continuar o pagamento.
+        </p>
+
+        <p class="aviso-demonstracao">
+            Modo demonstração — nenhuma cobrança será realizada.
+        </p>
+
+        <p id="mensagemCarregamento" role="status" aria-live="polite">
+            Carregando pedido...
+        </p>
+
+        <section id="painelPagamento" class="painel" hidden>
+            <h3 id="numeroPedido"></h3>
+            <p id="totalPedido"></p>
+
+            <p>Escolha a forma de pagamento:</p>
+
+            <div class="metodos" role="group" aria-label="Forma de pagamento">
+                <button type="button" data-metodo="credito" aria-pressed="false">
+                    Cartão de crédito
+                </button>
+
+                <button type="button" data-metodo="debito" aria-pressed="false">
+                    Cartão de débito
+                </button>
+
+                <button type="button" data-metodo="pix" aria-pressed="false">
+                    Pix
+                </button>
+            </div>
+
+            <div aria-live="polite" aria-atomic="true">
+                <p id="instrucaoPagamento">Selecione uma das opções acima.</p>
+                <p id="estadoPagamento"></p>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/pagamento.js" defer></script>
+</body>
+
+</html>

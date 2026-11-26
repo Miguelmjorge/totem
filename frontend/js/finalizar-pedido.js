@@ -1,8 +1,12 @@
 const botaoConfirmar = document.getElementById("confirmarPedido");
 const mensagemPedido = document.getElementById("mensagemPedido");
 
-// Também mantém o bloqueio se esta aba for atualizada durante o envio.
+// Envio cujo resultado ainda não foi confirmado.
 const CHAVE_PENDENTE = "laricafePedidoPendente";
+
+// Pedido já criado que precisa ter seu pagamento retomado.
+const CHAVE_PAGAMENTO = "laricafePedidoEmPagamento";
+
 let envioBloqueado = false;
 
 function bloquearControles(bloquear) {
@@ -24,17 +28,64 @@ function avisarConfirmacaoIncerta() {
     "antes de enviar novamente.";
 }
 
-try {
-  if (sessionStorage.getItem(CHAVE_PENDENTE)) {
-    avisarConfirmacaoIncerta();
+function atualizarRetomadaPagamento() {
+  const painel = document.getElementById("retomarPagamento");
+  const texto = document.getElementById("textoRetomarPagamento");
+  const link = document.getElementById("linkRetomarPagamento");
+
+  painel.hidden = true;
+
+  try {
+    const salvo = sessionStorage.getItem(CHAVE_PAGAMENTO);
+
+    if (salvo !== null) {
+      const id = Number(salvo);
+
+      if (
+        !/^[1-9][0-9]*$/.test(salvo) ||
+        !Number.isInteger(id) ||
+        id > 2147483647
+      ) {
+        throw new Error("Referência de pedido inválida.");
+      }
+
+      texto.textContent =
+        `O pedido nº ${id} já foi criado. ` +
+        "Retome o pagamento antes de iniciar outra compra.";
+
+      link.href = `pagamento.html?id=${encodeURIComponent(id)}`;
+      painel.hidden = false;
+
+      bloquearControles(true);
+      botaoConfirmar.textContent = "Continue o pagamento existente";
+      return;
+    }
+
+    if (sessionStorage.getItem(CHAVE_PENDENTE)) {
+      avisarConfirmacaoIncerta();
+      return;
+    }
+
+    bloquearControles(false);
+    botaoConfirmar.textContent = "Confirmar pedido";
+  } catch (erro) {
+    console.error("Falha ao recuperar pedido:", erro);
+
+    bloquearControles(true);
+    mensagemPedido.textContent =
+      "Não foi possível recuperar o pedido desta aba. " +
+      "Confira com o atendimento antes de enviar novamente.";
   }
-} catch {
-  bloquearControles(true);
-  mensagemPedido.textContent =
-    "O navegador não permitiu preparar a confirmação do pedido.";
 }
 
 botaoConfirmar.addEventListener("click", async () => {
+  if (envioBloqueado) {
+    return;
+  }
+
+  // Verifica novamente antes de permitir uma nova compra.
+  atualizarRetomadaPagamento();
+
   if (envioBloqueado) {
     return;
   }
@@ -69,24 +120,31 @@ botaoConfirmar.addEventListener("click", async () => {
     return;
   }
 
-  // Guarda a versão enviada para não apagar mudanças feitas em outra aba.
   let carrinhoSalvo;
 
   try {
     carrinhoSalvo = localStorage.getItem("laricafeCarrinho");
 
-    if (JSON.stringify(JSON.parse(carrinhoSalvo || "[]")) !==
-        JSON.stringify(carrinho)) {
+    if (
+      JSON.stringify(JSON.parse(carrinhoSalvo || "[]")) !==
+      JSON.stringify(carrinho)
+    ) {
       mensagemPedido.textContent =
-        "O carrinho foi alterado em outra página. Atualize antes de confirmar.";
+        "O carrinho foi alterado em outra página. " +
+        "Atualize antes de confirmar.";
       return;
     }
 
-    sessionStorage.setItem(CHAVE_PENDENTE, JSON.stringify({
-      itens,
-      iniciadoEm: new Date().toISOString(),
-    }));
-  } catch {
+    sessionStorage.setItem(
+      CHAVE_PENDENTE,
+      JSON.stringify({
+        itens,
+        iniciadoEm: new Date().toISOString(),
+      })
+    );
+  } catch (erro) {
+    console.error("Falha ao preparar envio:", erro);
+
     mensagemPedido.textContent =
       "Não foi possível preparar o envio. Nenhum pedido foi enviado.";
     return;
@@ -113,7 +171,7 @@ botaoConfirmar.addEventListener("click", async () => {
 
     const dados = await resposta.json();
 
-    // Esses códigos representam rejeições conhecidas do endpoint atual.
+    // Rejeições conhecidas do endpoint atual: preserva o carrinho.
     if ([400, 405, 409, 413, 415].includes(resposta.status)) {
       sessionStorage.removeItem(CHAVE_PENDENTE);
 
@@ -148,12 +206,14 @@ botaoConfirmar.addEventListener("click", async () => {
     clearTimeout(tempoLimite);
   }
 
-  // Daqui em diante sabemos que o pedido foi criado.
-  // Uma falha no navegador não pode ser apresentada como falha da compra.
-  const total = Number(pedidoConfirmado.valor_total).toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
+  // O backend confirmou que o pedido foi criado.
+  const total = Number(pedidoConfirmado.valor_total).toLocaleString(
+    "pt-BR",
+    {
+      style: "currency",
+      currency: "BRL",
+    }
+  );
 
   mensagemPedido.textContent =
     `Pedido nº ${pedidoConfirmado.id_pedido} registrado!\n` +
@@ -163,11 +223,24 @@ botaoConfirmar.addEventListener("click", async () => {
   botaoConfirmar.textContent = "Pedido registrado";
 
   try {
+    // Guarda o ID antes de limpar o carrinho ou mudar de página.
+    sessionStorage.setItem(
+      CHAVE_PAGAMENTO,
+      String(pedidoConfirmado.id_pedido)
+    );
+
+    atualizarRetomadaPagamento();
+
     if (localStorage.getItem("laricafeCarrinho") === carrinhoSalvo) {
       localStorage.removeItem("laricafeCarrinho");
       carrinho = [];
       atualizarCarrinho();
+
       sessionStorage.removeItem(CHAVE_PENDENTE);
+
+      window.location.assign(
+        `pagamento.html?id=${encodeURIComponent(pedidoConfirmado.id_pedido)}`
+      );
     } else {
       mensagemPedido.textContent +=
         "\nO carrinho mudou em outra aba e foi preservado. " +
@@ -175,7 +248,36 @@ botaoConfirmar.addEventListener("click", async () => {
     }
   } catch (erro) {
     console.error("Falha ao atualizar o carrinho:", erro);
+
     mensagemPedido.textContent +=
-      "\nNão foi possível limpar o carrinho. Não reenvie este pedido.";
+      "\nNão foi possível atualizar o carrinho. Não reenvie este pedido.";
   }
+}); 
+
+atualizarRetomadaPagamento();
+
+window.addEventListener("pageshow", (evento) => {
+  if (evento.persisted) {
+    try {
+      const salvo = JSON.parse(
+        localStorage.getItem("laricafeCarrinho") || "[]"
+      );
+
+      if (!Array.isArray(salvo)) {
+        throw new Error("Carrinho inválido.");
+      }
+
+      carrinho = salvo;
+      atualizarCarrinho();
+    } catch (erro) {
+      console.error("Falha ao atualizar carrinho:", erro);
+
+      bloquearControles(true);
+      mensagemPedido.textContent =
+        "Não foi possível atualizar o carrinho. Recarregue a página.";
+      return;
+    }
+  }
+
+  atualizarRetomadaPagamento();
 });
