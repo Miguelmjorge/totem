@@ -203,6 +203,10 @@
             margin-bottom: 20px;
             white-space: pre-line;
         }
+
+        #retomarPagamento[hidden] {
+            display: none;
+        }
     </style>
 </head>
 
@@ -221,6 +225,15 @@
         <h2 class="titulo-carrinho">Meu carrinho 🛒</h2>
 
         <p id="mensagemPedido" role="status" aria-live="polite"></p>
+        <section id="retomarPagamento" class="carrinho-vazio" hidden>
+            <h3>Continue seu pedido</h3>
+            <p id="textoRetomarPagamento"></p>
+
+            <a id="linkRetomarPagamento" class="continuar-pedido"
+                style="display:inline-block; padding:13px 20px; border-radius:8px; text-decoration:none;">
+                Continuar pagamento
+            </a>
+        </section>
 
         <div id="listaCarrinho" class="lista-carrinho"></div>
 

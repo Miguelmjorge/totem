@@ -28,7 +28,23 @@ function lerCarrinho() {
 }
 
 function adicionarProduto(produto) {
-  // Lê novamente para não usar uma cópia desatualizada do carrinho.
+  const pedidoEmPagamento = sessionStorage.getItem(
+    "laricafePedidoEmPagamento"
+  );
+
+  if (pedidoEmPagamento !== null) {
+    throw new Error(
+      "Você já possui um pedido em andamento. " +
+      "Abra Meu pedido para continuar o pagamento."
+    );
+  }
+
+  if (sessionStorage.getItem("laricafePedidoPendente") !== null) {
+    throw new Error(
+      "A confirmação do pedido anterior está pendente de conferência. " +
+      "Abra Meu pedido antes de iniciar outra compra."
+    );
+  }
   const carrinho = lerCarrinho();
   const id = Number(produto.id_produto);
 

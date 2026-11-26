@@ -6,4 +6,5 @@ return [
     'database' => 'cafeteria',
     'username' => 'cafeteria_app',
     'password' => '',
+    'pagamento_simulado_habilitado' => false,
 ];
